@@ -1,0 +1,38 @@
+{
+  "name": "satang-next",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Satang: Next",
+  "repository": "https://git.cogto.com/sipp11/satang-next.git",
+  "bugs": {
+    "url": "https://git.cogto.com/sipp11/stth-next/issues"
+  },
+  "homepage": "https://satang.everyday.in.th",
+  "main": "",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "author": "Sippakorn K <sipp11@zzyzx.co>",
+  "license": "MIT",
+  "dependencies": {
+    "@apollo/client": "^3.3.20",
+    "bulma": "^0.9.2",
+    "chalk": "^4.1.1",
+    "dayjs": "^1.10.5",
+    "graphql": "^15.5.0",
+    "graphql-request": "^3.4.0",
+    "next": "^10.2.3",
+    "next-auth": "^3.26.1",
+    "react": "^17.0.2",
+    "react-cookie": "^4.0.3",
+    "react-dom": "^17.0.2",
+    "react-ga": "^3.3.0",
+    "react-hook-form": "^7.8.4",
+    "react-markdown": "^6.0.2",
+    "react-spring-lightbox": "^1.6.0",
+    "styled-components": "^5.3.0",
+    "subscriptions-transport-ws": "^0.9.19"
+  }
+}
