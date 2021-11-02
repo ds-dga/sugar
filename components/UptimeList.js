@@ -1,4 +1,4 @@
-import { gql, useQuery, useSubscription } from "@apollo/client"
+import { gql, useQuery, useLazyQuery } from "@apollo/client"
 import { useEffect, useState } from "react"
 import styled from "styled-components"
 import dayjs from "dayjs"
@@ -20,7 +20,7 @@ export default function UptimeList() {
       SetItems([])
     }
   }, [data, loading])
-  console.log("UptimeList: error: ", error)
+  // console.log("UptimeList: error: ", error)
   return (
     <Container>
       {Items.map((item) => {
@@ -48,6 +48,7 @@ export default function UptimeList() {
                 <small>{dayjs(stats.created_at).fromNow()}</small>
               </>
             )}
+            <LastFewHistory id={item.id} />
           </Box>
         )
       })}
@@ -55,10 +56,70 @@ export default function UptimeList() {
   )
 }
 
+function LastFewHistory({ id }) {
+  const [getHistory, { loading, error, data }] = useLazyQuery(LAST_FEW_TRIES, {
+    variables: { ID: id },
+  })
+  const [Items, SetItems] = useState([])
+
+  useEffect(() => {
+    if (loading) return
+    if (data) {
+      SetItems(data.items)
+
+      setTimeout(() => {
+        SetItems([])
+      }, 5000)
+    } else {
+      SetItems([])
+    }
+  }, [data, loading])
+
+  if (!id) {
+    return <></>
+  }
+  return (
+    <>
+      {Items.length === 0 && (
+        <button
+          className="button is-small is-text"
+          onClick={() => {
+            getHistory()
+          }}
+        >
+          History
+        </button>
+      )}
+      {Items.length > 0 && (
+        <FlexRow>
+          {Items.map((i) => (
+            <HistoryItem
+              key={`h-${id}-${i.created_at}`}
+              className={`tag ${i.status_code > 500 ? "is-danger" : "is-success"} `}
+              title={`${dayjs(i.created_at).format("MMM, D H:mm:ss")} / ${i.response_time_ms.toFixed(1)} ms`}
+            >
+              {i.status_code}
+            </HistoryItem>
+          ))}
+        </FlexRow>
+      )}
+    </>
+  )
+}
+
 const Container = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+`
+
+const FlexRow = styled.div`
+  display: flex;
+  flex-direction: row;
+`
+
+const HistoryItem = styled.span`
+  margin: 0 5px;
 `
 
 const Box = styled.div`
@@ -88,6 +149,17 @@ const LATEST_UPTIME_QUERY = gql`
         size_byte
         created_at
       }
+    }
+  }
+`
+
+const LAST_FEW_TRIES = gql`
+  query LAST_FEW_TRIES($ID: uuid!) {
+    items: api_stats(where: { api_id: { _eq: $ID } }, limit: 5, order_by: { created_at: desc }) {
+      status_code
+      response_time_ms
+      size_byte
+      created_at
     }
   }
 `
