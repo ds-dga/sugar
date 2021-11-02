@@ -69,7 +69,7 @@ function LastFewHistory({ id }) {
 
       setTimeout(() => {
         SetItems([])
-      }, 5000)
+      }, 10000)
     } else {
       SetItems([])
     }
