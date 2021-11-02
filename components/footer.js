@@ -18,11 +18,11 @@ export default function Footer() {
             {dep.next}
           </small>
         </div>
-        <div className="column">
+        {/* <div className="column">
           <Link href="/policy">
             <a>Policy</a>
           </Link>
-        </div>
+        </div> */}
       </div>
     </footer>
   )

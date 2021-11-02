@@ -1,14 +1,15 @@
 import { useRouter } from "next/router"
-import Link from "next/link"
 import styled from "styled-components"
-import Protected from "../components/protected"
+import Layout from "../components/layout"
+import UptimeList from "../components/UptimeList"
 
 export default function Page() {
   // const router = useRouter()
   return (
-    <Protected>
-      <h1>Text 1111</h1>
-    </Protected>
+    <Layout>
+      <h1 className="title has-text-centered">Uptime 🏠</h1>
+      <UptimeList />
+    </Layout>
   )
 }
 

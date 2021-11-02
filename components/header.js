@@ -25,11 +25,11 @@ export default function Header() {
               <Icon icon={HomeAltIcon} size={32} />
             </CustomLinkWrapper>
           </Link>
-          <Link href="/search">
+          {/* <Link href="/search">
             <CustomLinkWrapper>
               <Icon icon={SearchAltIcon} size={32} />
             </CustomLinkWrapper>
-          </Link>
+          </Link> */}
           {session && (
             <Link href="/profile">
               <CustomLinkWrapper>
@@ -37,7 +37,7 @@ export default function Header() {
               </CustomLinkWrapper>
             </Link>
           )}
-          {!session && (
+          {/* {!session && (
             <div className={`nojs-show ${!session && loading ? styles.loading : styles.loaded}`}>
               <a
                 href={`/api/auth/signin`}
@@ -50,7 +50,7 @@ export default function Header() {
                 Sign in
               </a>
             </div>
-          )}
+          )} */}
           {/* <div className={`nojs-show ${!session && loading ? styles.loading : styles.loaded}`}>
             {!session && (
               <>

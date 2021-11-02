@@ -4,7 +4,7 @@ import Footer from '../components/footer'
 export default function Layout ({children}) {
   return (
     <>
-      <Header/>
+      {/* <Header/> */}
       <main style={{ minHeight: "70vh" }}>
         {children}
       </main>
