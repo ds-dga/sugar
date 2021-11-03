@@ -2,4 +2,4 @@
 
 export DOCKER_IMAGE=dk-reg.10ninox.com/ds-dga/sugar:latest
 docker build -t $DOCKER_IMAGE -f Dockerfile .
-docker push $DOCKER_IMAGE
+# docker push $DOCKER_IMAGE

@@ -7,7 +7,12 @@ export default function Footer() {
     <footer className={"footer p-6"}>
       <div className="columns">
         <div className="column is-half"></div>
-        <div className="column"></div>
+        <div className="column">
+          <ul>
+            <li><Link href="/sugar">Uptime 🍧</Link></li>
+            <li><Link href="/sugar/icon">Icon 😶‍🌫️</Link></li>
+          </ul>
+        </div>
       </div>
       <div className="columns">
         <div className="column is-two-thirds">
