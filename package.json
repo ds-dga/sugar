@@ -1,8 +1,8 @@
 {
   "name": "sugar-next",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": true,
-  "description": "Satang: Next",
+  "description": "Sugar: Next",
   "repository": "https://github.com/ds-dga/sugar.git",
   "bugs": {
     "url": "https://github.com/ds-dga/sugar/issues"
