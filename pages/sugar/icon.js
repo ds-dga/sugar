@@ -84,6 +84,34 @@ export default function Page() {
           <img className="image" src="/static/me/blue/icon-txt_star-1.webp" width="30" />
         </FlexRow>
       </section>
+      <section className="section" style={{ padding: "1.5rem" }}>
+        <h1 className="title">Next design Icon</h1>
+        <h2 className="subtitle">svg icon ~6 kB each</h2>
+        <FlexRow margin="1rem" padding="1rem">
+          <img className="image" src="/static/me/next/icon-bigger-old-star.svg" width="32" />
+          <img className="image" src="/static/me/next/icon-bigger-old-star-red.svg" width="32" />
+          <img className="image" src="/static/me/next/icon-bigger-old-star-blue.svg" width="32" />
+          <img className="image" src="/static/me/next/icon-small-star.png" width="32" />
+          <img className="image" src="/static/me/next/icon-small-star.svg" width="32" />
+          <img className="image" src="/static/me/next/icon-big-star-yellow.png" width="32" />
+          <img className="image" src="/static/me/next/icon-big-star-yellow-border.svg" width="32" />
+          <img className="image" src="/static/me/next/icon-big-star-yellow.svg" width="32" />
+          <img className="image" src="/static/me/next/icon-big-star-purple.png" width="32" />
+          <img className="image" src="/static/me/next/icon-big-star-purple.svg" width="32" />
+        </FlexRow>
+        <FlexRow margin="1rem" padding="1rem" background="#F2F2F2">
+          <img className="image" src="/static/me/next/icon-bigger-old-star.svg" width="30" />
+          <img className="image" src="/static/me/next/icon-bigger-old-star-red.svg" width="30" />
+          <img className="image" src="/static/me/next/icon-bigger-old-star-blue.svg" width="30" />
+          <img className="image" src="/static/me/next/icon-small-star.png" width="30" />
+          <img className="image" src="/static/me/next/icon-small-star.svg" width="30" />
+          <img className="image" src="/static/me/next/icon-big-star-yellow.png" width="30" />
+          <img className="image" src="/static/me/next/icon-big-star-yellow-border.svg" width="30" />
+          <img className="image" src="/static/me/next/icon-big-star-yellow.svg" width="30" />
+          <img className="image" src="/static/me/next/icon-big-star-purple.png" width="30" />
+          <img className="image" src="/static/me/next/icon-big-star-purple.svg" width="30" />
+        </FlexRow>
+      </section>
     </Layout>
   )
 }
