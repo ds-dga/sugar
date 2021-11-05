@@ -88,27 +88,27 @@ export default function Page() {
         <h1 className="title">Next design Icon</h1>
         <h2 className="subtitle">svg icon ~6 kB each</h2>
         <FlexRow margin="1rem" padding="1rem">
+          <img className="image" src="/static/me/next/icon-bigger-star-bright-yellow-black-2.svg" width="32" />
+          <img className="image" src="/static/me/next/icon-bigger-star-bright-yellow-black.svg" width="32" />
+          <img className="image" src="/static/me/next/icon-bigger-star-pale-yellow-black.svg" width="32" />
           <img className="image" src="/static/me/next/icon-bigger-old-star.svg" width="32" />
           <img className="image" src="/static/me/next/icon-bigger-old-star-red.svg" width="32" />
           <img className="image" src="/static/me/next/icon-bigger-old-star-blue.svg" width="32" />
-          <img className="image" src="/static/me/next/icon-small-star.png" width="32" />
           <img className="image" src="/static/me/next/icon-small-star.svg" width="32" />
-          <img className="image" src="/static/me/next/icon-big-star-yellow.png" width="32" />
           <img className="image" src="/static/me/next/icon-big-star-yellow-border.svg" width="32" />
           <img className="image" src="/static/me/next/icon-big-star-yellow.svg" width="32" />
-          <img className="image" src="/static/me/next/icon-big-star-purple.png" width="32" />
           <img className="image" src="/static/me/next/icon-big-star-purple.svg" width="32" />
         </FlexRow>
         <FlexRow margin="1rem" padding="1rem" background="#F2F2F2">
+          <img className="image" src="/static/me/next/icon-bigger-star-bright-yellow-black-2.svg" width="30" />
+          <img className="image" src="/static/me/next/icon-bigger-star-bright-yellow-black.svg" width="30" />
+          <img className="image" src="/static/me/next/icon-bigger-star-pale-yellow-black.svg" width="30" />
           <img className="image" src="/static/me/next/icon-bigger-old-star.svg" width="30" />
           <img className="image" src="/static/me/next/icon-bigger-old-star-red.svg" width="30" />
           <img className="image" src="/static/me/next/icon-bigger-old-star-blue.svg" width="30" />
-          <img className="image" src="/static/me/next/icon-small-star.png" width="30" />
           <img className="image" src="/static/me/next/icon-small-star.svg" width="30" />
-          <img className="image" src="/static/me/next/icon-big-star-yellow.png" width="30" />
           <img className="image" src="/static/me/next/icon-big-star-yellow-border.svg" width="30" />
           <img className="image" src="/static/me/next/icon-big-star-yellow.svg" width="30" />
-          <img className="image" src="/static/me/next/icon-big-star-purple.png" width="30" />
           <img className="image" src="/static/me/next/icon-big-star-purple.svg" width="30" />
         </FlexRow>
       </section>
