@@ -1,6 +1,6 @@
 import * as React from "react"
 
-export default function ChannelIcon(props) {
+export default function Spinner(props) {
   return (
     <svg
       data-name="Layer 1"

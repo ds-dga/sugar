@@ -7,8 +7,8 @@ export default function Page() {
   // const router = useRouter()
   return (
     <Layout>
-      <h1 className="title has-text-centered">Uptime 🏠</h1>
-      <UptimeList />
+      <h1 className="title has-text-centered">🏠</h1>
+      {/* <UptimeList /> */}
     </Layout>
   )
 }

@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { signIn, signOut, useSession } from "next-auth/client"
+import { signIn, signOut, useSession } from "next-auth/react"
 import styles from "./header.module.css"
 import HomeAltIcon from "./icon/home"
 import SearchAltIcon from "./icon/search"
@@ -11,7 +11,8 @@ import ScreenIcon from "./icon/screen"
 // component that works on pages which support both client and server side
 // rendering, and avoids any flash incorrect content on initial page load.
 export default function Header() {
-  const [session, loading] = useSession()
+  const { data: session, status } = useSession()
+  const loading = status === "loading"
 
   return (
     <header>

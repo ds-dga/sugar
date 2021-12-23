@@ -9,8 +9,10 @@ export default function Footer() {
         <div className="column is-half"></div>
         <div className="column">
           <ul>
+            <li><Link href="/">Home 🏠</Link></li>
             <li><Link href="/sugar">Uptime 🍧</Link></li>
             <li><Link href="/sugar/icon">Icon 😶‍🌫️</Link></li>
+            <li><Link href="/profile">Profile 👤</Link></li>
           </ul>
         </div>
       </div>
@@ -20,7 +22,8 @@ export default function Footer() {
           <br />
           <small>
             Built with react@{dep.react}, nextjs@
-            {dep.next}
+            {dep.next}, next-auth@
+            {dep["next-auth"]}
           </small>
         </div>
         {/* <div className="column">
