@@ -22,6 +22,7 @@ export default function BetterDropZone() {
     xhr = new XMLHttpRequest() // XHR - Upload Progress
 
     xhr.upload.onprogress = (e) => {
+      //console.log("upload onProgress: ", xhr.upload)
       const done = e.position || e.loaded
       const total = e.totalSize || e.total
       const perc = Math.floor((done / total) * 1000) / 10
@@ -45,6 +46,19 @@ export default function BetterDropZone() {
 
     xhr.send(payload)
 
+    xhr.onreadystatechange = async (e) => {
+      //console.log(xhr.status, xhr)
+      try {
+        const resp = await JSON.parse(`${xhr.response}`)
+        const statusCategory = Math.floor(xhr.status / 100)
+        if ([4, 5].includes(statusCategory)) {
+          setPercentage(0)
+          setStatus(`Error: ${resp.message}`)
+        }
+      } catch (e) {
+        // console.log("Ready state change ERR: ", e)
+      }
+    }
     event.preventDefault()
   }
 
@@ -105,10 +119,10 @@ const DropStatus = styled.div`
   display: block;
   font-family: "Helvetica", Arial, sans-serif;
   color: black;
-  font-size: 60px;
+  font-size: 3rem;
   font-weight: bold;
   text-align: center;
-  line-height: calc(80vh - 80px);
+  // line-height: calc(80vh - 80px);
   position: absolute;
   top: 0;
   bottom: 0;

@@ -16,9 +16,6 @@ export default function MyFile() {
     loading: qLoading,
     error: qError,
   } = useQuery(MY_FILE_QUERY, {
-    variables: {
-      userID: session.social.id,
-    },
     skip: !session,
     pollInterval: 10 * 1000,
   })
@@ -51,8 +48,8 @@ const SM = styled.div`
 `
 
 const MY_FILE_QUERY = gql`
-  query MY_FILE_QUERY($userID: uuid!) {
-    items: media(where: { uploaded_by: { _eq: $userID } }, order_by: { created_at: desc }) {
+  query MY_FILE_QUERY {
+    items: media(order_by: { created_at: desc }) {
       id
       name
       size

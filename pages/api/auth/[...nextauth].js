@@ -2,6 +2,7 @@ import NextAuth from "next-auth"
 import TwitterProvider from "next-auth/providers/twitter"
 import CredentialsProvider from "next-auth/providers/credentials"
 import jwt_decode from "jwt-decode"
+import { BaseMediaURL } from "../../../lib/media"
 
 export default (req, res) => NextAuth(req, res, options)
 
@@ -18,7 +19,7 @@ const options = {
       },
       authorize: async (credentials, req) => {
         // console.log("spice - authorize [1]", credentials, req)
-        const res = await fetch("https://ds.10z.dev/login", {
+        const res = await fetch(`${BaseMediaURL}/login`, {
           method: "POST",
           body: JSON.stringify(credentials),
           headers: { "Content-Type": "application/json" },
@@ -74,14 +75,46 @@ const options = {
     // newUser: null // If set, new users will be directed here on first sign in
   },
   callbacks: {
-    // async signIn({ user, account, profile, email, credentials }) {
-    //   console.log(" signIn[00]: ", account)
-    //   console.log(" signIn[01]: ", user)
-    //   console.log(" signIn[02]: ", profile)
-    //   console.log(" signIn[03]: ", email)
-    //   console.log(" signIn[04]: ", credentials)
-    //   return true
-    // },
+    async signIn({ user, account, profile, email, credentials }) {
+      // console.log(" signIn[00]: ", account)
+      // console.log(" signIn[01]: ", user)
+      // console.log(" signIn[02]: ", profile)
+      // console.log(" signIn[03]: ", email)
+      // console.log(" signIn[04]: ", credentials)
+      if (account.provider === "credentials") {
+        return true
+      }
+      const body = {
+        uid: account.providerAccountId,
+        provider: account.provider,
+        username: user.name,
+        email: user.email,
+        profileURL: user.image,
+      }
+      const res = await fetch(`${BaseMediaURL}/social-connect`, {
+        method: "POST",
+        body: JSON.stringify(body),
+        headers: { "Content-Type": "application/json" },
+      })
+      // console.log("spice - authorize [2]", res)
+      //console.log('[social-connect]: [00] ', body)
+      //console.log('[social-connect]: [0] ', res)
+      const token = await res.json()
+      //console.log('[social-connect]: [1] ', token)
+      if (token.result !== "success") {
+        return null
+      }
+
+      /* signIn[00]:  {
+        provider: 'twitter',
+        type: 'oauth',
+        providerAccountId: '14317487',
+        oauth_token: '14317487-RnjQ0mwqJUdn4AikvXbrCudUtZn68vdY0r4kNkhQA',
+        oauth_token_secret: 'KrMd2bNYHgCVAWaO0rqZw4ZKKxtiMm2uXybFYWeg6rISv'
+      } */
+      //
+      return true
+    },
     // async redirect(url, baseUrl) { return baseUrl },
     async session({ session, user, token }) {
       /* console.log(" session[00]: ", token)
